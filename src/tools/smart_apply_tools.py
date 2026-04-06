@@ -2,28 +2,31 @@ import os
 import requests
 from typing import Optional
 
-# Lấy cấu hình từ .env hoặc sử dụng mặc định từ API Key bạn cung cấp
-AGENT_ID = os.getenv("SMART_APPLY_AGENT_ID", "69ca437e82d037b8fcf136c0")
-TOKEN = os.getenv("SMART_APPLY_TOKEN", "69ca439f9ffadfa2c498fe2d")
+# Lấy cấu hình từ biến môi trường
+AGENT_ID = os.getenv("SMART_APPLY_AGENT_ID")
+TOKEN = os.getenv("SMART_APPLY_TOKEN")
 BASE_URL = "https://api-v2.smartapply.ca"
+
+if not AGENT_ID or not TOKEN:
+    raise ValueError(
+        "SMART_APPLY_AGENT_ID and SMART_APPLY_TOKEN must be set in .env file"
+    )
+
 
 def get_school_programs(school_id: str, search: str = "", page: int = 1) -> str:
     """
     Tool 4: Lấy danh sách chuyên ngành học (Get Program list) của một trường cụ thể.
     """
     url = f"{BASE_URL}/api/open-application/{AGENT_ID}/school/{school_id}/program"
-    params = {
-        "token": TOKEN,
-        "page": page
-    }
+    params = {"token": TOKEN, "page": page}
     if search:
         params["search"] = search
-        
+
     try:
         response = requests.get(url, params=params)
         response.raise_for_status()
         data = response.json()
-        
+
         # Format dữ liệu trả về cho LLM dễ đọc (tránh quăng raw JSON quá dài có thể gây rối)
         if data.get("statusCode") == 200 and data.get("result"):
             result_list = data["result"]
@@ -37,23 +40,22 @@ def get_school_programs(school_id: str, search: str = "", page: int = 1) -> str:
     except Exception as e:
         return f"Function Call Error - get_school_programs: {str(e)}"
 
+
 def get_program_detail(program_id: str) -> str:
     """
     Tool 5: Xem thông tin chi tiết của một chương trình học.
     """
     url = f"{BASE_URL}/api/open-application/{AGENT_ID}/program/{program_id}"
-    params = {
-        "token": TOKEN
-    }
-    
+    params = {"token": TOKEN}
+
     try:
         response = requests.get(url, params=params)
         response.raise_for_status()
         data = response.json()
-        
+
         if data.get("statusCode") == 200 and data.get("result"):
             item = data["result"]
-            
+
             # Format trả về chi tiết dạng Text
             return (
                 f"Program ID: {item.get('_id')}\n"
@@ -64,13 +66,22 @@ def get_program_detail(program_id: str) -> str:
     except Exception as e:
         return f"Function Call Error - get_program_detail: {str(e)}"
 
-def submit_student_application(student_name: str, student_email: str, student_phone: str, program_id: str,
-                               country: str = "Viet Nam", city: str = "", passport: str = "", birthday: str = "") -> str:
+
+def submit_student_application(
+    student_name: str,
+    student_email: str,
+    student_phone: str,
+    program_id: str,
+    country: str = "Viet Nam",
+    city: str = "",
+    passport: str = "",
+    birthday: str = "",
+) -> str:
     """
     Tool 6: Gửi hồ sơ đăng ký (Submit application) nhập học cho học viên.
     """
     url = f"{BASE_URL}/api/open-application/{AGENT_ID}/application"
-    
+
     # Payload theo đúng chuẩn JSON body của SmartApply
     payload = {
         "token": TOKEN,
@@ -78,35 +89,41 @@ def submit_student_application(student_name: str, student_email: str, student_ph
             "name": student_name,
             "email": student_email,
             "phone": student_phone,
-            "address": {
-                "country": country,
-                "city": city,
-                "state": "",
-                "street": ""
-            },
+            "address": {"country": country, "city": city, "state": "", "street": ""},
             "passport": passport,
             "birthday": birthday,
             "student_id": "",
-            "code": ""
+            "code": "",
         },
-        "parent_info": {
-            "name": "",
-            "phone": "",
-            "email": ""
-        },
+        "parent_info": {"name": "", "phone": "", "email": ""},
         "intake": [],
         "program": program_id,
-        "student_notification": False # False để tránh spam email học sinh khi test
+        "student_notification": False,  # False để tránh spam email học sinh khi test
     }
-    
+
     try:
         response = requests.post(url, json=payload)
         response.raise_for_status()
         data = response.json()
-        
+
         if data.get("statusCode") == 200 and data.get("result"):
             res = data["result"]
-            return f"Thành công đăng ký hồ sơ! Mã hồ sơ (Application ID): {res.get('_id')}"
+            return (
+                f"Thành công đăng ký hồ sơ! Mã hồ sơ (Application ID): {res.get('_id')}"
+            )
         return "Gửi hồ sơ thất bại: Server không trả về OK 200."
     except Exception as e:
         return f"Function Call Error - submit_student_application: {str(e)}"
+
+
+tool_get_program_detail_config = {
+    "name": "get_program_detail",
+    "description": "Xem thông tin chi tiết của một chương trình học dựa trên program_id. Trả về name, intakes.",
+    "func": get_program_detail,
+}
+
+tool_submit_application_config = {
+    "name": "submit_student_application",
+    "description": "Gửi hồ sơ đăng ký nhập học cho học viên. Cần: student_name, student_email, student_phone, program_id. Optional: country, city, passport, birthday.",
+    "func": submit_student_application,
+}

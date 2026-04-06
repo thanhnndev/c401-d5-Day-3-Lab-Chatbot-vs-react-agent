@@ -5,8 +5,14 @@ import os
 def get_school_detail(school_id: str) -> str:
     """Lấy thông tin chi tiết của một trường học dựa trên school_id."""
     host = "https://api-v2.smartapply.ca"
-    agent_id = os.getenv("SMART_APPLY_AGENT_ID", "your_agent_id")
-    token = os.getenv("SMART_APPLY_TOKEN", "your_token")
+    agent_id = os.getenv("SMART_APPLY_AGENT_ID")
+    token = os.getenv("SMART_APPLY_TOKEN")
+
+    if not agent_id or not token:
+        raise ValueError(
+            "SMART_APPLY_AGENT_ID and SMART_APPLY_TOKEN must be set in .env file"
+        )
+
     url = f"{host}/api/open-application/{agent_id}/school/{school_id}"
 
     params = {"token": token}
