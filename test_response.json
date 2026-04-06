@@ -1,0 +1,285 @@
+﻿{
+    "statusCode": 200,
+    "result": [
+        {
+            "_id": "651f7d57e8bdb030a6ff6a66",
+            "name": "Thompson Rivers University",
+            "description": "",
+            "address": {
+                "country": "Canada",
+                "state": "British Columbia",
+                "city": "Kamloops",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d57e8bdb030a6ff6a67/651f7d57e8bdb030a6ff6a66/651f7d57e8bdb030a6ff6a68/screenshot-2022-07-27-104127.png",
+            "admin": "651f7d57e8bdb030a6ff6a67",
+            "category": "University"
+        },
+        {
+            "_id": "651f7d57e8bdb030a6ff6b8f",
+            "name": "Edmonds College",
+            "description": "",
+            "address": {
+                "country": "United States",
+                "state": "Washington",
+                "city": "Lynnwood",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d57e8bdb030a6ff6b90/651f7d57e8bdb030a6ff6b8f/651f7d57e8bdb030a6ff6b91/edmonds-college-logo.png",
+            "admin": "651f7d57e8bdb030a6ff6b90",
+            "category": "College"
+        },
+        {
+            "_id": "651f7d57e8bdb030a6ff6bf8",
+            "name": "College of New Caledonia",
+            "description": null,
+            "address": {
+                "country": "Canada",
+                "state": "British Columbia",
+                "city": "Prince Geogre",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d57e8bdb030a6ff6bf9/651f7d57e8bdb030a6ff6bf8/651f7d57e8bdb030a6ff6bfa/college-of-new-caledonia-logo.png",
+            "admin": "651f7d57e8bdb030a6ff6bf9",
+            "category": "College"
+        },
+        {
+            "_id": "651f7d5be8bdb030a6ff6ebd",
+            "name": "Selkirk College",
+            "description": "",
+            "address": {
+                "country": "Canada",
+                "state": "British Columbia",
+                "city": "Castlegar",
+                "street": null
+            },
+            "logo": "https://s3.ap-southeast-1.amazonaws.com/school-smartapply/68ad357b1522a2d24fdc26fd/68dc925b6e73633efc566af9/l209bddc846b873bde2b792c801cba6.jpg",
+            "admin": "651f7d5be8bdb030a6ff6ebe",
+            "category": "College"
+        },
+        {
+            "_id": "651f7d5ce8bdb030a6ff6f66",
+            "name": "Southern Cross University - Lismore",
+            "description": null,
+            "address": {
+                "country": "Australia",
+                "state": "New South Wales",
+                "city": "Lismore",
+                "street": null
+            },
+            "logo": "https://s3.ap-southeast-1.amazonaws.com/smartlynx/66fa4fef7dce42f324ac3a2d/67f4e00d496b201d78061ea1/images-4.jpg",
+            "admin": "651f7d5ce8bdb030a6ff6f67",
+            "category": "University"
+        },
+        {
+            "_id": "651f7d5de8bdb030a6ff6f8f",
+            "name": "Capilano University",
+            "description": null,
+            "address": {
+                "country": "Canada",
+                "state": "British Columbia",
+                "city": "North Vancouver",
+                "street": null
+            },
+            "logo": "https://s3.ap-southeast-1.amazonaws.com/smartlynx/66fa4fef7dce42f324ac3a2d/67ef7c52cd4612094d56eea9/az-capilano-university-logo1.jpg",
+            "admin": "651f7d5de8bdb030a6ff6f90",
+            "category": "University"
+        },
+        {
+            "_id": "651f7d5ee8bdb030a6ff702c",
+            "name": "Massachusetts College of Pharmacy and Health Sciences",
+            "description": "",
+            "address": {
+                "country": "United States",
+                "state": "Massachusetts",
+                "city": "Boston",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d5ee8bdb030a6ff702d/651f7d5ee8bdb030a6ff702c/651f7d5ee8bdb030a6ff702e/massachusetts-college-of-pharmacy-and-health-sciences-logo-october2021.png",
+            "admin": "651f7d5ee8bdb030a6ff702d",
+            "category": "University"
+        },
+        {
+            "_id": "651f7d5ee8bdb030a6ff719d",
+            "name": "Middle Tennessee State University",
+            "description": "",
+            "address": {
+                "country": "United States",
+                "state": "Tennessee",
+                "city": "Murfreesboro",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d5ee8bdb030a6ff719e/651f7d5ee8bdb030a6ff719d/651f7d5ee8bdb030a6ff719f/images-3.png",
+            "admin": "651f7d5ee8bdb030a6ff719e",
+            "category": "University"
+        },
+        {
+            "_id": "651f7d5fe8bdb030a6ff73b8",
+            "name": "Northwest College",
+            "description": "",
+            "address": {
+                "country": "United States",
+                "state": "Wyoming",
+                "city": "Powell",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d5fe8bdb030a6ff73b9/651f7d5fe8bdb030a6ff73b8/651f7d5fe8bdb030a6ff73ba/nwc.jpg",
+            "admin": "651f7d5fe8bdb030a6ff73b9",
+            "category": "College"
+        },
+        {
+            "_id": "651f7d60e8bdb030a6ff7439",
+            "name": "Elgin Community College",
+            "description": "",
+            "address": {
+                "country": "United States",
+                "state": "Illinois",
+                "city": "Elgin",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d60e8bdb030a6ff743a/651f7d60e8bdb030a6ff7439/651f7d60e8bdb030a6ff743b/logo.jpg",
+            "admin": "651f7d60e8bdb030a6ff743a",
+            "category": "College"
+        },
+        {
+            "_id": "651f7d60e8bdb030a6ff74a3",
+            "name": "Cleveland State University",
+            "description": null,
+            "address": {
+                "country": "United States",
+                "state": "Ohio",
+                "city": "Cleveland",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d60e8bdb030a6ff74a4/651f7d60e8bdb030a6ff74a3/651f7d60e8bdb030a6ff74a5/fm9emztegckomizhanmyy3ivybdnisca.png",
+            "admin": "651f7d60e8bdb030a6ff74a4",
+            "category": "University"
+        },
+        {
+            "_id": "651f7d62e8bdb030a6ff78c7",
+            "name": "University of New Hampshire",
+            "description": "",
+            "address": {
+                "country": "United States",
+                "state": "New Hampshire",
+                "city": "Durham",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d62e8bdb030a6ff78c8/651f7d62e8bdb030a6ff78c7/651f7d62e8bdb030a6ff78c9/az-university-of-new-hampshire-logo.png",
+            "admin": "651f7d62e8bdb030a6ff78c8",
+            "category": "University"
+        },
+        {
+            "_id": "651f7d63e8bdb030a6ff7ab2",
+            "name": "Columbia College",
+            "description": null,
+            "address": {
+                "country": "Canada",
+                "state": "British Columbia",
+                "city": "Vancouver",
+                "street": null
+            },
+            "logo": "https://s3.ap-southeast-1.amazonaws.com/smartlynx/66fa4fef7dce42f324ac3a2d/688b17571260a4d0fcc87d50/columbia-college-logo-1-e1684114292962.png",
+            "admin": "651f7d63e8bdb030a6ff7ab3",
+            "category": "College"
+        },
+        {
+            "_id": "651f7d64e8bdb030a6ff7d82",
+            "name": "University of Tulsa",
+            "description": null,
+            "address": {
+                "country": "United States",
+                "state": "Oklahoma",
+                "city": "Tulsa",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d64e8bdb030a6ff7d83/651f7d64e8bdb030a6ff7d82/651f7d64e8bdb030a6ff7d84/favicon.png",
+            "admin": "651f7d64e8bdb030a6ff7d83",
+            "category": "University"
+        },
+        {
+            "_id": "651f7d68e8bdb030a6ff859c",
+            "name": "Duquesne University",
+            "description": null,
+            "address": {
+                "country": "United States",
+                "state": "Pennsylvania",
+                "city": "Pittsburgh",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d68e8bdb030a6ff859d/651f7d68e8bdb030a6ff859c/651f7d68e8bdb030a6ff859e/images.png",
+            "admin": "651f7d68e8bdb030a6ff859d",
+            "category": "University"
+        },
+        {
+            "_id": "651f7d69e8bdb030a6ff8672",
+            "name": "University of Tennessee",
+            "description": "",
+            "address": {
+                "country": "United States",
+                "state": "Tennessee",
+                "city": "Knoxville",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d69e8bdb030a6ff8673/651f7d69e8bdb030a6ff8672/651f7d69e8bdb030a6ff8674/university-centeredlogo-rgb.png",
+            "admin": "651f7d69e8bdb030a6ff8673",
+            "category": "University"
+        },
+        {
+            "_id": "651f7d6ae8bdb030a6ff8835",
+            "name": "University of Windsor",
+            "description": "",
+            "address": {
+                "country": "Canada",
+                "state": "Ontario",
+                "city": "Windsor",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d6ae8bdb030a6ff8836/651f7d6ae8bdb030a6ff8835/651f7d6ae8bdb030a6ff8837/uwindsor-new-logo-desktop-1600x1024-1.jpg",
+            "admin": "651f7d6ae8bdb030a6ff8836",
+            "category": "University"
+        },
+        {
+            "_id": "651f7d6be8bdb030a6ff894c",
+            "name": "Highline College",
+            "description": "",
+            "address": {
+                "country": "United States",
+                "state": "Washington",
+                "city": "Des Moines",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d6be8bdb030a6ff894d/651f7d6be8bdb030a6ff894c/651f7d6be8bdb030a6ff894e/vs-dt4.jpg",
+            "admin": "651f7d6be8bdb030a6ff894d",
+            "category": "College"
+        },
+        {
+            "_id": "651f7d6be8bdb030a6ff89d6",
+            "name": "Towson University",
+            "description": null,
+            "address": {
+                "country": "United States",
+                "state": "Maryland",
+                "city": "Towson",
+                "street": null
+            },
+            "logo": "https://s3.ap-southeast-1.amazonaws.com/smartlynx/66fa4fef7dce42f324ac3a2d/67f4e78bcd4612094d56fc2e/brand-brandmarks-horiz-sq.jpg",
+            "admin": "651f7d6be8bdb030a6ff89d7",
+            "category": "University"
+        },
+        {
+            "_id": "651f7d6ce8bdb030a6ff8a18",
+            "name": "Centennial College",
+            "description": "",
+            "address": {
+                "country": "Canada",
+                "state": "Ontario",
+                "city": "Toronto",
+                "street": null
+            },
+            "logo": "https://smartlynx.s3.ap-southeast-1.amazonaws.com/651f7d6ce8bdb030a6ff8a19/651f7d6ce8bdb030a6ff8a18/651f7d6ce8bdb030a6ff8a1a/oqxr4otagrde5adiyqeekwwbbddazwzermq8ltyu.png",
+            "admin": "651f7d6ce8bdb030a6ff8a19",
+            "category": "College"
+        }
+    ]
+}
