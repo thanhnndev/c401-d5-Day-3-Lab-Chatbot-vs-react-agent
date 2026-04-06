@@ -50,36 +50,37 @@ class ReActAgent:
         steps = 0
 
         while steps < self.max_steps:
-            # TODO: Generate LLM response
-            # result = self.llm.generate(current_prompt, system_prompt=self.get_system_prompt())
-            response = self.llm.generate(current_prompt, system_prompt=self.get_system_prompt())
-            content = response["content"]
-            tracker.track_request(response["provider"], self.llm.model_name, response["usage"], response["latency_ms"])
+            # 1. Generate LLM response
+            result = self.llm.generate(current_prompt, system_prompt=self.get_system_prompt())
+            text = result.get("content", "")
             
-            print(f"\n--- Step {steps+1} ---\n{content}")
-
-            # TODO: Parse Thought/Action from result
-            if "Final Answer:" in content:
-                logger.log_event("AGENT_END", {"steps": steps + 1, "status": "success"})
-                return content.split("Final Answer:")[-1].strip()
-
-            # TODO: If Action found -> Call tool -> Append Observation
-            # TODO: If Final Answer found -> Break loop
-
-            action_match = re.search(r"Action:\s*(\w+)\((.*)\)", content)
-            if action_match:
-                tool_name, tool_args = action_match.groups()
-                observation = self._execute_tool(tool_name, tool_args)
-                print(f"Observation: {observation}")
-                current_prompt += f"\n{content}\nObservation: {observation}"
+            print(f"--\nStep {steps}:\n{text}\n--")
+            
+            # 2. Check for Final Answer
+            if "Final Answer:" in text:
+                final_answer = text.split("Final Answer:")[1].strip()
+                logger.log_event("AGENT_END", {"steps": steps})
+                return final_answer
+                
+            # 3. Parse Thought/Action
+            # Looking for: Action: tool_name(args)
+            match = re.search(r"Action:\s*(\w+)(?:\((.*?)\))?", text)
+            
+            if match:
+                tool_name = match.group(1)
+                args = match.group(2) or ""
+                # Call tool
+                observation = self._execute_tool(tool_name, args)
+                # Append Observation
+                current_prompt = f"{current_prompt}\n{text}\nObservation: {observation}\n"
             else:
-                logger.log_event("AGENT_END", {"steps": steps + 1, "status": "success_with_fallback"})
-                return content
+                # Force the model to continue if it forgets the format
+                current_prompt = f"{current_prompt}\n{text}\nObservation: Error - Please use Action: tool_name(args) or Final Answer: your answer\n"
             
             steps += 1
             
-        logger.log_event("AGENT_END", {"steps": steps, "status": "max_steps_reached"})
-        return "Not implemented. Fill in the TODOs!"
+        logger.log_event("AGENT_END", {"steps": steps})
+        return "Max steps reached without finding Final Answer."
 
     # def _execute_tool(self, tool_name: str, args: str) -> str:
     #     # """
@@ -95,15 +96,19 @@ class ReActAgent:
     def _execute_tool(self, tool_name: str, args: str) -> str:
         for tool in self.tools:
             if tool['name'] == tool_name:
-                logger.log_event("TOOL_CALL", {"tool": tool_name, "args": args})
-                
-                # Biến args là string trả về từ LLM (VD: "'Canada', 'Data'"). Cần parse nó để truyền vào hàm:
-                try:
-                    # Gợi ý đơn giản: Tách argument string bằng dấu phẩy và làm sạch chuỗi
-                    parsed_args = [arg.strip().strip("'\"") for arg in args.split(",") if arg.strip()]
-                    result = tool['func'](*parsed_args)
-                    return str(result)
-                except Exception as e:
-                    return f"Lỗi khi thực thi tool {tool_name}: {str(e)}"
-                    
-        return f"Tool {tool_name} không tồn tại."
+                func = tool.get('func')
+                if func:
+                    try:
+                        if args and args.strip():
+                            # For learning purpose, dynamically evaluate arguments
+                            # Make func available to eval scope
+                            safe_locals = {"func": func}
+                            code_to_eval = f"func({args})"
+                            return str(eval(code_to_eval, {"__builtins__": None}, safe_locals))
+                        else:
+                            return str(func())
+                    except Exception as e:
+                        return f"Error executing tool {tool_name}: {str(e)}"
+                else:
+                    return f"Tool {tool_name} configuration is missing 'func' executable."
+        return f"Tool {tool_name} not found. Please select from provided tools."
