@@ -40,4 +40,5 @@ tool_get_programs_config = {
     "name": "get_programs",
     "description": "Lấy danh sách các chương trình học (programs) của một trường cụ thể dựa trên school_id. Có thể search bằng search_query.",
     "func": get_programs,
+    "parameters": "school_id (string), search_query (tùy chọn)",
 }

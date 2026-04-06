@@ -47,6 +47,7 @@ tool_get_country_list_config = {
     "name": "get_country_list",
     "description": "Dùng để lấy danh sách các quốc gia mà hệ thống có hỗ trợ tư vấn du học. Trả về tên các quốc gia.",
     "func": get_country_list,
+    "parameters": "Không cần tham số",
 }
 
 
@@ -102,4 +103,5 @@ tool_search_schools_config = {
     "name": "search_schools",
     "description": "Tìm kiếm các trường học tại một quốc gia (country) và có thể kèm từ khóa (search). Ví dụ: Action: search_schools(country='Canada', search='College')",
     "func": search_schools,
+    "parameters": "country (bắt buộc), search (tùy chọn)",
 }
