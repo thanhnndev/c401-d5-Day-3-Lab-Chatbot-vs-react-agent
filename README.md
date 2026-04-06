@@ -5,9 +5,11 @@ Welcome to Phase 3 of the Agentic AI course! This lab focuses on moving from a s
 ## 🚀 Getting Started
 
 ### 1. Setup Environment
-Copy the `.env.example` to `.env` and fill in your API keys:
-```bash
-cp .env.example .env
+Create a `.env` file in the root directory with your API keys:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+SMART_APPLY_AGENT_ID=69ca437e82d037b8fcf136c0
+SMART_APPLY_TOKEN=69ca439f9ffadfa2c498fe2d
 ```
 
 ### 2. Install Dependencies
@@ -15,8 +17,16 @@ cp .env.example .env
 pip install -r requirements.txt
 ```
 
-### 3. Directory Structure
+### 3. Run the Agent
+```bash
+python run_agent.py
+```
+
+### 4. Directory Structure
 - `src/tools/`: Extension point for your custom tools.
+- `src/agent/`: ReAct agent implementation.
+- `src/core/`: LLM providers (Gemini, OpenAI, Local).
+- `logs/`: Telemetry logs (JSON format).
 
 ## 🏠 Running with Local Models (CPU)
 
