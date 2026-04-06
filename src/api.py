@@ -34,8 +34,15 @@ class ChatRequest(BaseModel):
     message: str
 
 
+class Step(BaseModel):
+    type: str
+    content: str
+    timestamp: int
+
+
 class ChatResponse(BaseModel):
     response: str
+    steps: list[Step] = []
 
 
 def initialize_agent():
@@ -46,7 +53,7 @@ def initialize_agent():
     if not os.getenv("SMART_APPLY_AGENT_ID") or not os.getenv("SMART_APPLY_TOKEN"):
         raise ValueError("SMART_APPLY_AGENT_ID and SMART_APPLY_TOKEN must be set")
 
-    llm = GeminiProvider(model_name="gemini-2.5-flash", api_key=gemini_api_key)
+    llm = GeminiProvider(model_name="gemini-3-flash-preview", api_key=gemini_api_key)
 
     tools = [
         tool_get_country_list_config,
@@ -64,8 +71,12 @@ def initialize_agent():
 async def chat(request: ChatRequest):
     try:
         agent = initialize_agent()
-        response = agent.run(request.message)
-        return ChatResponse(response=response)
+        result = agent.run(request.message)
+
+        # Convert steps to Step models
+        steps = [Step(**step) for step in result.get("steps", [])]
+
+        return ChatResponse(response=result.get("response", ""), steps=steps)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
