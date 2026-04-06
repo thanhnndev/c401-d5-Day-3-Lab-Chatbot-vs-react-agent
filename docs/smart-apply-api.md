@@ -109,7 +109,7 @@
 - **Body mẫu:**
 ```json
 {
-  "token": "69ca439f9ffadfa2c498fe2d",
+  "token": "your_token_here",
   "student_info": {
     "name": "string",
     "email": "string",
