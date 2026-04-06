@@ -10,7 +10,7 @@
 
 *Describe your specific contribution to the codebase (e.g., implemented a specific tool, fixed the parser, etc.).*
 
-- **Modules Implemented**: Tách monolithic file thành hệ thống file độc lập `src/tools/get_school_detail.py`, `src/tools/get_programs.py`. Cập nhật `src/agent/agent.py` và `run_agent.py` để tích hợp hoàn chỉnh.
+- **Modules Implemented**: Tách monolithic file thành hệ thống file độc lập `src/tools/get_school_detail.py`, `src/tools/get_programs.py`. Cập nhật `src/agent/agent.py` và `src/agent/run_agent.py` để tích hợp hoàn chỉnh.
 - **Code Highlights**:
 Thay vì trả về đối tượng thập cẩm làm tốn token của Agent, tôi đã cấu trúc lại JSON Parser cho tool để chỉ lọc ra những key quan trọng khớp với API Spec. 
 
