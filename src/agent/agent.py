@@ -3,6 +3,7 @@ import re
 from typing import List, Dict, Any, Optional
 from src.core.llm_provider import LLMProvider
 from src.telemetry.logger import logger
+from src.telemetry.metrics import tracker
 
 class ReActAgent:
     # """
@@ -72,7 +73,8 @@ class ReActAgent:
                 print(f"Observation: {observation}")
                 current_prompt += f"\n{content}\nObservation: {observation}"
             else:
-                return "Failure: Can not analyze Agent's actions."
+                logger.log_event("AGENT_END", {"steps": steps + 1, "status": "success_with_fallback"})
+                return content
             
             steps += 1
             
