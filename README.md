@@ -5,11 +5,16 @@ Welcome to Phase 3 of the Agentic AI course! This lab focuses on moving from a s
 ## 🚀 Getting Started
 
 ### 1. Setup Environment
-Create a `.env` file in the root directory with your API keys:
+Copy `.env.example` to `.env` and fill in your API keys:
+```bash
+cp .env.example .env
+```
+
+Then edit `.env` with your credentials:
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
-SMART_APPLY_AGENT_ID=69ca437e82d037b8fcf136c0
-SMART_APPLY_TOKEN=69ca439f9ffadfa2c498fe2d
+SMART_APPLY_AGENT_ID=your_agent_id_here
+SMART_APPLY_TOKEN=your_token_here
 ```
 
 ### 2. Install Dependencies
@@ -18,9 +23,20 @@ pip install -r requirements.txt
 ```
 
 ### 3. Run the Agent
+
+**Option A: CLI Mode**
 ```bash
 python run_agent.py
 ```
+
+**Option B: FastAPI Server**
+```bash
+uvicorn src.api:app --reload --host 0.0.0.0 --port 8000
+```
+
+Then access the API at `http://localhost:8000`
+- API Docs: http://localhost:8000/docs
+- Chat Endpoint: `POST /chat`
 
 ### 4. Directory Structure
 - `src/tools/`: Extension point for your custom tools.
@@ -60,6 +76,35 @@ The code is designed as a **Production Prototype**. It includes:
 - **Telemetry**: Every action is logged in JSON format for later analysis.
 - **Robust Provider Pattern**: Easily extendable to any LLM API.
 - **Clean Skeletons**: Focus on the logic that matters—the agent's reasoning process.
+
+## 📡 API Documentation
+
+### Chat Endpoint
+
+**POST** `/chat`
+
+Send a message to the ReAct agent and get an intelligent response.
+
+**Request Body:**
+```json
+{
+  "message": "Find schools in Canada"
+}
+```
+
+**Response:**
+```json
+{
+  "response": "Here are the schools in Canada..."
+}
+```
+
+**Example with curl:**
+```bash
+curl -X POST http://localhost:8000/chat \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Find schools in Canada"}'
+```
 
 ---
 

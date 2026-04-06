@@ -17,7 +17,7 @@ class UniversityConsultantBot:
         load_dotenv(env_path)
         
         api_key = os.environ.get("GEMINI_API_KEY")
-        model_gemini = os.environ.get("MODEL_GEMINI", "gemini-2.5-flash")
+        model_gemini = os.environ.get("MODEL_GEMINI", "gemini-3-flash-preview")
         
         if not api_key:
             raise ValueError("Vui lòng thêm GEMINI_API_KEY vào file .env ở thư mục gốc.")

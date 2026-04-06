@@ -6,8 +6,8 @@
 
 ```env
 # SmartApply API Credentials
-SMART_APPLY_AGENT_ID=69ca437e82d037b8fcf136c0
-SMART_APPLY_TOKEN=69ca439f9ffadfa2c498fe2d
+SMART_APPLY_AGENT_ID=your_agent_id_here
+SMART_APPLY_TOKEN=your_token_here
 
 # LLM Provider (choose one)
 GEMINI_API_KEY=your_gemini_api_key

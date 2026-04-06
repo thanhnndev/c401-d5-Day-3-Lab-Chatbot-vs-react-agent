@@ -45,4 +45,5 @@ tool_get_school_detail_config = {
     "name": "get_school_detail",
     "description": "Lấy thông tin chi tiết của một trường học dựa trên school_id. Trả về logo, name, category, description, address, content, website, banner.",
     "func": get_school_detail,
+    "parameters": "school_id (string)",
 }

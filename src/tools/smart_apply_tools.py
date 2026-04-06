@@ -120,10 +120,12 @@ tool_get_program_detail_config = {
     "name": "get_program_detail",
     "description": "Xem thông tin chi tiết của một chương trình học dựa trên program_id. Trả về name, intakes.",
     "func": get_program_detail,
+    "parameters": "program_id (string)",
 }
 
 tool_submit_application_config = {
     "name": "submit_student_application",
     "description": "Gửi hồ sơ đăng ký nhập học cho học viên. Cần: student_name, student_email, student_phone, program_id. Optional: country, city, passport, birthday.",
     "func": submit_student_application,
+    "parameters": "student_name, student_email, student_phone, program_id (bắt buộc); country, city, passport, birthday (tùy chọn)",
 }

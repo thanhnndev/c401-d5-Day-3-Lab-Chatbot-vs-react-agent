@@ -34,7 +34,7 @@ def main():
 
     # Sử dụng model gemini-1.5-flash (có thể đổi sang flash-8b hoặc pro nếu muốn)
     # GeminiProvider(model_name, api_key) -> theo file src/core/gemini_provider.py
-    llm = GeminiProvider(model_name="gemini-2.5-flash", api_key=gemini_api_key)
+    llm = GeminiProvider(model_name="gemini-3-flash-preview", api_key=gemini_api_key)
 
     # 2. Khai báo danh sách các tools
     tools = [tool_get_country_list_config, tool_search_schools_config]
