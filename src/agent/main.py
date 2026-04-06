@@ -1,5 +1,3 @@
-from src.tools.get_countries import get_countries
-from src.tools.search_schools import search_schools
 from src.tools.get_school_detail import get_school_detail
 from src.tools.get_programs import get_programs
 

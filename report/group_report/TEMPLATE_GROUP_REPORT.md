@@ -1,7 +1,7 @@
 # Group Report: Lab 3 - Production-Grade Agentic System
 
-- **Team Name**: [Name]
-- **Team Members**: [Member 1, Member 2, ...]
+- **Team Name**: [C401-d5]
+- **Team Members**: []
 - **Deployment Date**: [YYYY-MM-DD]
 
 ---
